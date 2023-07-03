@@ -16,7 +16,10 @@ connectDB();
 
 app.use(logger);
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+app.UseCors((x) =>
+  x.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().AllowCredentials()
+);
 
 app.use(express.json());
 
