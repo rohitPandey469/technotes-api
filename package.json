@@ -4,12 +4,12 @@
   "description": "techNotes MERN Project",
   "main": "server.js",
   "scripts": {
-    "start": "node server",
+    "start": "nodemon server",
     "dev": "nodemon server",
     "seed": "nodemon seeds"
   },
   "keywords": [],
-  "author": "",
+  "author": "Rohit Pandey",
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^5.1.0",
