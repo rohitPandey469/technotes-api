@@ -6,23 +6,31 @@ const { logger, logEvents } = require("./middleware/logger.js");
 const errorHandler = require("./middleware/errorHandler.js");
 const cookieParser = require("cookie-parser");
 const cors = require("cors");
-const corsOptions = require("./config/corsOptions.js");
+// const corsOptions = require("./config/corsOptions.js");
 const connectDB = require("./config/dbConn");
 const mongoose = require("mongoose");
 const PORT = process.env.PORT || 3500;
 
-app.all("/", function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "X-Requested-With");
-  next();
-});
+// app.all("/", function (req, res, next) {
+//   res.header("Access-Control-Allow-Origin", "*");
+//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
+//   next();
+// });
 
 connectDB();
 // mongoose.connect("mongodb://127.0.0.1:27017/techNotesDB", {useNewUrlParser: true,useUnifiedTopology: true,}).then(() => {console.log("MONGO CONNECTION OPEN!!!");}).catch((err) => {console.log(err);});
 
 app.use(logger);
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
+
+app.use(
+  cors({
+    origin: "https://technotes-by-rohitpandey469.netlify.app",
+    credentials: true,
+    optionsSuccessStatus: 200,
+  })
+);
 
 app.use(cookieParser());
 
