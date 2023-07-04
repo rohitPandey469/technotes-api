@@ -23,7 +23,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://technotes-by-rohitpandey469.netlify.app/",
+    origin: "https://technotes-by-rohitpandey469.netlify.app",
     credentials: true,
   })
 );
